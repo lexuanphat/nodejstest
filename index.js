@@ -10,6 +10,10 @@ const sslServer = https.createServer({
     'cert': fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
 }, app);
 
+app.get('/', function (req, res) {
+    res.render("Hello")
+})
+
 // Now let's create a server that will listen to our port.
 const server = sslServer.listen(`${port}`, () => {
     console.log(`Server started on port ${port}`);
